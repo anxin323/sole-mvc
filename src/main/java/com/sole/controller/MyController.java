@@ -11,13 +11,6 @@ public class MyController {
     @RequestMapping(value="/hello")  
     public String hello(){  
         System.out.println("spring mvc hello");  
-        return "index";  
-    } 
-    
-    
-    @RequestMapping(value="/ok")  
-    public String ok123(){  
-        System.out.println("spring mvc hello");  
-        return "index";  
+        return "hello";  
     } 
 }

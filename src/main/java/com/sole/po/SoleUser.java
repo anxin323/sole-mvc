@@ -2,6 +2,9 @@ package com.sole.po;
 
 import java.io.Serializable;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class SoleUser implements Serializable {
 
 	/**

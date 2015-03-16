@@ -12,16 +12,27 @@
 	<!-- 激活@Controller模式 -->
 	<mvc:annotation-driven />
 	<!-- 对包中的所有类进行扫描，以完成Bean创建和自动依赖注入的功能 需要更改 -->
-	<context:component-scan base-package="com.sole.controller" />
+	<context:component-scan base-package="com.sole.*" />
 
  	<!-- 拦截器配置 -->
  	<mvc:interceptors>
 			<bean class="com.sole.interceptor.MonitorInterceptor" />
 			<bean class="com.sole.interceptor.LoginInterceptor" />
 	</mvc:interceptors> 
+	
+ 	<!-- 注入properties配置到Spring中 -->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreResourceNotFound" value="true"></property>
+		<property name="locations">
+			<list>
+				<value>classpath:/config.properties</value>
+			</list>
+		</property>
+	</bean> 
 
-	<bean
-		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+	 <bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" /> 
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

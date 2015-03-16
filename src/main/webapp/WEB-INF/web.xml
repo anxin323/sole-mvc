@@ -9,6 +9,15 @@
 		<param-value>classpath:log4j.properties</param-value>
 	</context-param>
 
+	<servlet>
+		<servlet-name>runtain</servlet-name>
+		<jsp-file>/WEB-INF/login.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>runtain</servlet-name>
+		<url-pattern>/login.jsp</url-pattern>
+	</servlet-mapping>
+
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.html</url-pattern>
@@ -40,6 +49,10 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
+	<!-- <listener> <listener-class>com.sole.util.NodeListener</listener-class> 
+		</listener> -->
+
+	<!--字符集过滤，强制将请求和返回的字符集转换为UTF-8的格式 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
